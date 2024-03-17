@@ -28,7 +28,7 @@ public class Athlete {
 	}
 	public boolean deleteGrade(String apparatus) {
 		for(int i=0;i<grades.length; i++) {
-			if(grades[i].getApparatus() == apparatus) {
+			if(grades[i]!=null && grades[i].getApparatus() == apparatus) {
 				grades[i]=null;
 				count--;
 				return true;
@@ -49,7 +49,7 @@ public class Athlete {
 		}
 	public boolean allGradesAbove(double num) {
 		for(int i=0;i<grades.length; i++) {
-			if(grades[i].getScore()<num) {
+			if(grades[i]!=null &&grades[i].getScore()<num) {
 				return false;
 			}
 		}
@@ -58,9 +58,10 @@ public class Athlete {
 	public boolean isBetter (Athlete a) {
 		String ap =""; 
 		for(int i=0;i<this.grades.length; i++) {
+			if(grades[i]!=null);
 			ap = this.grades[i].getApparatus();
 			for(int j=0;j<a.grades.length; j++) {
-				if(ap.equals(a.grades[j].getApparatus())) {
+				if(grades[i]!=null &&ap.equals(a.grades[j].getApparatus())) {
 					if(this.grades[i].getScore()<a.grades[j].getScore()) {
 						return false;
 					}
